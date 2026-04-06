@@ -12,6 +12,7 @@ export default function Signup() {
   const handleSignup = async () => {
     try {
       await signupUser({ name, email, password });
+      alert("user regestered successfully");
       navigate("/");
     } catch (err) {
       if (err.response.status == 400) {
@@ -21,6 +22,7 @@ export default function Signup() {
         alert("Signup failed");
       }
     }
+
   };
 
   return (
