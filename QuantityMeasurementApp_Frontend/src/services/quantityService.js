@@ -1,5 +1,7 @@
 import axios from "axios";
 
+
+const API_URL = import.meta.env.VITE_BASE_URL;
 export const calculateQuantity = async (data) => {
 
 
@@ -14,7 +16,7 @@ export const calculateQuantity = async (data) => {
       targetUnit: data.unit2
     };
 
-    const res = await axios.post(`http://localhost:5263/api/v1/quantities/${data.operation.toLowerCase()}`, payload, {
+    const res = await axios.post(`${API_URL}/v1/quantities/${data.operation.toLowerCase()}`, payload, {
 
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +39,7 @@ export const calculateQuantity = async (data) => {
       measurementType: data.type
     }
   };
-  const res = await axios.post(`http://localhost:5263/api/v1/quantities/${data.operation.toLowerCase()}`, payload, {
+  const res = await axios.post(`${API_URL}/v1/quantities/${data.operation.toLowerCase()}`, payload, {
 
     headers: {
       "Content-Type": "application/json",
@@ -50,7 +52,7 @@ export const calculateQuantity = async (data) => {
 };
 
 export const getHistory = async () => {
-  const res = await axios.get("http://localhost:5263/api/v1/quantities/history/all", {
+  const res = await axios.get(`${API_URL}/v1/quantities/history/all`, {
 
     headers: {
       "Content-Type": "application/json",
